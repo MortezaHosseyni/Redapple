@@ -15,6 +15,18 @@ Start_OS:
     MOV ax, 07C0h
     MOV ds, ax
 
+; Cursor
+MoveCursor:
+    PUSHA
+
+    MOV bh, 0
+    MOV ah, 2
+
+    int 0x10
+
+    POPA
+    RET
+
 ; Texts
 Text1       db      'Welcome to Redapple OS', 0
 Text2       db      'I am ready for your commands sir', 0
