@@ -22,10 +22,31 @@ MoveCursor:
     MOV bh, 0
     MOV ah, 2
 
-    int 0x10
+    INT 0x10
 
     POPA
     RET
+
+; Write
+Write:
+    PUSHA
+
+    MOV ah, 0x0E
+    MOV bh, 0
+
+    .nextChar:
+        LODSB
+
+        CMP al, 0
+        JE .End
+
+        INT 0x10
+
+        JMP .nextChar
+    
+    .End:
+        POPA
+        RET
 
 ; Texts
 Text1       db      'Welcome to Redapple OS', 0
