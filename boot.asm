@@ -15,6 +15,47 @@ Start_OS:
     MOV ax, 07C0h
     MOV ds, ax
 
+
+    ; Print text 1
+    MOV dl, 1
+    MOV dh, 1
+
+    CALL MoveCursor
+
+    MOV si, Text1
+    CALL Write
+
+    ; Print text 2
+    MOV dl, 1
+    MOV dh, 2
+
+    CALL MoveCursor
+
+    MOV si, Text2
+    CALL Write
+
+    ; Print text 3
+    MOV dl, 1
+    MOV dh, 4
+
+    CALL MoveCursor
+
+    MOV si, Text3
+    CALL Write
+
+    ; Print text 4
+    MOV dl, 1
+    MOV dh, 5
+
+    CALL MoveCursor
+
+    MOV si, Text4
+    CALL Write
+
+
+
+    JMP $
+
 ; Cursor
 MoveCursor:
     PUSHA
